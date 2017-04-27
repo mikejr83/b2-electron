@@ -1,18 +1,16 @@
 {
-  "name": "b2",
-  "version": "0.0.1",
-  "description": "",
-  "main": "app.js",
+  "name": "b2-app",
+  "version": "0.0.0",
+  "license": "MIT",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc && ng build",
-    "prestart": "npm run build",
-    "start": "electron app.js",
-    "dist-win32-x64": "npm run build && electron-packager . --out=dist --platform=win32 --arch=x64 --overwrite",
-    "dist-all": "npm run build && electron-packager . --out=dist --platform=all --arch=all --overwrite"
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e"
   },
-  "author": "",
-  "license": "ISC",
+  "private": true,
   "dependencies": {
     "@angular/common": "^4.0.0",
     "@angular/compiler": "^4.0.0",
@@ -29,12 +27,9 @@
   "devDependencies": {
     "@angular/cli": "1.0.1",
     "@angular/compiler-cli": "^4.0.0",
-    "@types/electron": "^1.4.37",
     "@types/jasmine": "2.5.38",
     "@types/node": "~6.0.60",
     "codelyzer": "~2.0.0",
-    "electron": "^1.6.6",
-    "electron-packager": "^8.6.0",
     "jasmine-core": "~2.5.2",
     "jasmine-spec-reporter": "~3.2.0",
     "karma": "~1.4.1",
