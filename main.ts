@@ -1,7 +1,9 @@
 import path = require('path');
 import url = require('url');
 
-import { app, BrowserWindow } from 'electron';
+import { app, BrowserWindow, Menu } from 'electron';
+
+import { buildMenu } from './menu/builder';
 
 export default class Main {
     static mainWindow: Electron.BrowserWindow;
@@ -25,8 +27,10 @@ export default class Main {
             protocol: 'file:',
             slashes: true
         });
-        console.log(pageUrl)
+        
         Main.mainWindow.loadURL(pageUrl);
+
+        buildMenu();
 
         Main.mainWindow.on('closed', Main.onClose);
     }
