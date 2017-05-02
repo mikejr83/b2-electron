@@ -5,8 +5,8 @@
   },
   "apps": [
     {
-      "root": "b2-app/src",
-      "outDir": "build",
+      "root": "src",
+      "outDir": "../electron/app/ng",
       "assets": [
         "assets",
         "favicon.ico"
@@ -31,23 +31,23 @@
   ],
   "e2e": {
     "protractor": {
-      "config": "./b2-app/protractor.conf.js"
+      "config": "./protractor.conf.js"
     }
   },
   "lint": [
     {
-      "project": "b2-app/src/tsconfig.app.json"
+      "project": "src/tsconfig.app.json"
     },
     {
-      "project": "b2-app/src/tsconfig.spec.json"
+      "project": "src/tsconfig.spec.json"
     },
     {
-      "project": "b2-app/e2e/tsconfig.e2e.json"
+      "project": "e2e/tsconfig.e2e.json"
     }
   ],
   "test": {
     "karma": {
-      "config": "./b2-app/karma.conf.js"
+      "config": "./karma.conf.js"
     }
   },
   "defaults": {
