@@ -1,21 +1,29 @@
 import { Injectable } from '@angular/core';
-// import { ipcRenderer } from 'electron';
+import { ipcRenderer, remote } from 'electron';
+
+import { Subject } from 'rxjs/Subject';
+
+import { Files } from '../../../../shared/files';
+
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class FoldersService {
-    private electron;
+  private folderSource = new Subject<Files.FileSystemObject>();
 
-    folder: string;
-    items: string[];
+  folder$ = this.folderSource.asObservable();
 
-    constructor() {
-        this.electron = window['require']('electron');
-        console.log(this.electron);
-        this.electron.ipcRenderer.on('menu-open', this.folderSelectedHandler.bind(this));
-    }
+  constructor() {
+    ipcRenderer.on('menu-open', (evt, arg) => {
+      this.selectedFolderContentsUpdated(evt, arg);
+    });
+  }
 
-    private folderSelectedHandler (event: any, arg: any) {
-        console.log('hasdfsadfa');
-        console.log('Folder selected', arg);
-    }
+  private selectedFolderContentsUpdated(evt: any, arg: any) {
+    console.log('Folder selected', arg as Files.FileSystemObject);
+
+    this.folderSource.next(arg as Files.FileSystemObject);
+  }
 }
+
+

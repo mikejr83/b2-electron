@@ -17,6 +17,7 @@
   "author": "Mike",
   "license": "ISC",
   "dependencies": {
+    "electron-log": "^2.2.3"
   },
   "devDependencies": {
     "@types/electron": "^1.4.37",

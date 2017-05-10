@@ -5,6 +5,8 @@ import { app, BrowserWindow, Menu } from 'electron';
 
 import { buildMenu } from './menu/builder';
 
+import * as log from 'electron-log';
+
 export default class Main {
     static mainWindow: Electron.BrowserWindow;
     static application: Electron.App;
@@ -21,15 +23,17 @@ export default class Main {
     }
 
     private static onReady() {
+        log.debug('onReady');
+        
         Main.mainWindow = new Main.BrowserWindow({ width: 800, height: 600 });
         let pageUrl = url.format({
-            pathname: path.join(__dirname, 'build/index.html'),
+            pathname: path.join(__dirname, 'ng/index.html'),
             protocol: 'file:',
             slashes: true
         });
         
         Main.mainWindow.loadURL(pageUrl);
-
+        
         buildMenu();
 
         Main.mainWindow.on('closed', Main.onClose);

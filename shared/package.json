@@ -1,0 +1,22 @@
+{
+  "name": "b2-electron",
+  "version": "0.0.1",
+  "description": "",
+  "main": "app.js",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
+  },
+  "author": "Mike",
+  "license": "ISC",
+  "dependencies": {
+    "electron-log": "^2.2.3"
+  },
+  "devDependencies": {
+    "@types/jasmine": "2.5.38",
+    "@types/node": "~6.0.60",
+    "tslint": "~5.1.0",
+    "typescript": "~2.2.0"
+  }
+}

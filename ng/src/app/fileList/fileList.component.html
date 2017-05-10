@@ -1,0 +1,13 @@
+<md-list>
+  <h3 *ngIf="!rootFolder">
+    Nothing Selected
+  </h3>
+  <md-list-item *ngIf="rootFolder">
+    <h3>{{rootFolder.name}}</h3>
+  </md-list-item>
+  <ng-container *ngIf="rootFolder && rootFolder.children">
+    <md-list-item *ngFor="let item of rootFolder.children">
+
+    </md-list-item>
+  </ng-container>
+</md-list>

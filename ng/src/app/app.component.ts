@@ -1,5 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
+import { Subscription }   from 'rxjs/Subscription';
+
 import { FoldersService } from 'app/services/folders.service';
+
+import { Files } from '../../../shared/files';
 
 @Component({
   selector: 'app-root',
@@ -7,9 +11,19 @@ import { FoldersService } from 'app/services/folders.service';
   styleUrls: ['./app.component.css'],
   providers: [FoldersService]
 })
-export class AppComponent {
+export class AppComponent  implements OnDestroy {
   title = 'app works!';
+  selectedFolder: Files.FileSystemObject;
+  subscription: Subscription;
 
-  constructor(private folderService:FoldersService) {
+  constructor(private foldersService: FoldersService) {
+    console.log(foldersService);
+    this.subscription = foldersService.folder$.subscribe((folder) => {
+      this.selectedFolder = folder;
+    });
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 }

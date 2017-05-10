@@ -3,17 +3,24 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { MaterialModule } from '@angular/material';
+
 import { AppComponent } from './app.component';
-import { FoldersService } from './services/folders.service';
+import { FileListComponent } from './fileList/fileList.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FileListComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    BrowserAnimationsModule,
+    MaterialModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
