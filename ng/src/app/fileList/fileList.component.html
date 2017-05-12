@@ -1,0 +1,15 @@
+<h3 *ngIf="!rootFolder">
+  Nothing Selected
+</h3>
+<ul *ngIf="rootFolder">
+  <li>
+    <h2>{{rootFolder.name}}</h2>
+    <ng-container *ngFor="let folder in rootFolder.folders">
+      <file-list  [rootFolder]="folder"></file-list>
+    </ng-container>
+  </li>
+  <!--<ng-container *ngIf="rootFolder">
+    <file-list-children md-content [children]="rootFolder.folders"></file-list-children>
+      <file-list-children md-content [children]="rootFolder.files"></file-list-children>
+  </ng-container>-->
+</ul>
