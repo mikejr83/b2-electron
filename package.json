@@ -1,17 +1,17 @@
 {
-    "name": "b2-electron",
-    "version": "0.0.1",
-    "description": "",
-    "main": "app.js",
-    "private": true,
-    "scripts": {
-        "postinstall": "cd electron && npm install cd ../ng && npm install",
-        "build": "cd ng && npm run build && cd ../electron && tsc",
-        "prestart": "cd ng && npm run build",
-        "start": "cd electron && npm start"
-    },
-    "author": "Mike",
-    "license": "ISC",
-    "dependencies": {},
-    "devDependencies": {}
+  "name": "b2-electron",
+  "version": "0.0.1",
+  "description": "",
+  "main": "app.js",
+  "private": true,
+  "scripts": {
+    "postinstall": "cd electron && npm install cd ../ng && npm install",
+    "build": "cd ng && npm run build && cd ../electron && npm run build",
+    "prestart": "cd ng && npm run build",
+    "start": "cd electron && npm start"
+  },
+  "author": "Mike",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": { }
 }

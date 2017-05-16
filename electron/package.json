@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc",
+    "build": "webpack",
     "prestart": "npm run build",
     "start": "electron app/app.js",
     "starts": "concurrently \"npm run tsc:w\" \"electron app.js\" ",

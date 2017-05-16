@@ -21,7 +21,7 @@ import { FileListChildrenComponent } from './fileList/fileListChildren.component
     FormsModule,
     HttpModule,
     BrowserAnimationsModule,
-    MaterialModule.forRoot(),
+    MaterialModule,
     TreeModule
   ],
   providers: [],
