@@ -1,11 +1,24 @@
-<md-toolbar>
-  <span>B2-Uploader</span>
-</md-toolbar>
+<div fxFill>
+  <div fxLayout="row" class="">
+    <md-toolbar>
+      <span>B2-Uploader</span>
+    </md-toolbar>
+  </div>
+  <div fxLayout="row">
+    <div fxLayout="column" fxFlex="0 0 18em" class="file-tree-container panel">
+      <tree-root [nodes]="selectedFolder" [options]="treeOptions">
+      </tree-root>
+    </div>
+    <div fxLayout="column" fxFlexOffset=".5em" >
+      <div fxLayout="row">
+        <h1>
+          {{title}}
+        </h1>
+      </div>
+      <div fxLayout="row">
+        CONTENT
+      </div>
+    </div>
+  </div>
 
-<h1>
-  {{title}}
-</h1>
-
-<tree-root [nodes]="selectedFolder">
-
-</tree-root>
+</div>

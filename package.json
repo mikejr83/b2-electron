@@ -6,12 +6,15 @@
   "private": true,
   "scripts": {
     "postinstall": "cd electron && npm install cd ../ng && npm install",
-    "build": "cd ng && npm run build && cd ../electron && npm run build",
+    "build-ng": "(cd ng; npm run build)",
+    "build-electron": "(cd electron;npm run build)",
+    "build": "concurrently \"(cd ng && npm run build)\" \"(cd electron && npm run build)\"",
     "prestart": "cd ng && npm run build",
     "start": "cd electron && npm start"
   },
   "author": "Mike",
   "license": "ISC",
-  "dependencies": {},
-  "devDependencies": { }
+  "devDependencies": {
+    "concurrently": "^3.4.0"
+  }
 }

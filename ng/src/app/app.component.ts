@@ -3,7 +3,9 @@ import { Subscription } from 'rxjs/Subscription';
 
 import { FoldersService } from 'app/services/folders.service';
 
-import { TreeView } from '../../../shared/files';
+import { ITreeOptions, TreeNode } from 'angular-tree-component'
+
+import { B2Shared } from '../../../shared/files';
 
 @Component({
   selector: 'app-root',
@@ -13,16 +15,24 @@ import { TreeView } from '../../../shared/files';
 })
 export class AppComponent implements OnDestroy, OnInit {
   title = 'app works!';
-  public selectedFolder: TreeView.Node[];
+  public selectedFolder: B2Shared.TreeView.Node[];
+  public treeOptions: ITreeOptions = {
+    getChildren: this.handleHasChildren.bind(this)
+  };
   subscription: Subscription;
 
   constructor(private foldersService: FoldersService, private changeDetector: ChangeDetectorRef) {
-
+    //this.treeOptions.getChildren = this.handleHasChildren;
   }
 
-  private handleSubscription(folder: TreeView.Node) {
-      this.selectedFolder = [folder];
-      this.changeDetector.detectChanges();
+  private handleSubscription(folder: B2Shared.TreeView.Node) {
+    this.selectedFolder = [folder];
+    this.changeDetector.detectChanges();
+  }
+
+  private handleHasChildren(node: TreeNode) {
+    console.log('Handling has children:', node);
+    return this.foldersService.loadChildrenForNode(node);
   }
 
   ngOnInit() {
